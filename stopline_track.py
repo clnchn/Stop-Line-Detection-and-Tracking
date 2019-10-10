@@ -2,18 +2,9 @@
 #======= DESCRIPTION =======
 
 This is only a test program for stop and lane line detection so a local image will be used as the input.
-
-Normal method of extracting lane lines using canny edge detection and hough transform is used. 
-Then, 
-
-Eliminate roadlines that are not inside the drivable surface based on segmentation.
-Separate into stop lines and lane lines.
-This program works by using Region of Interest (ROI) selection to find key src
-and dst points. Then it uses the normal method for the transforming the image
-into BEV. For some reason, when selecting ROI, I couldn't see the actual marks
-on the ground, so I translated the image for selected, and then undid the
-translation later on after points were selected. Maybe this step won't be
-needed on other devices.
+Normal method for extracting lane lines using canny edge detection and hough transform is used. 
+The roadlines that are not inside the drivable surface based on segmentation are removed from the ROI. 
+The stop lines and lane lines are then separated into different colours. 
 
 To Use:
 1) Set fileName to the name of the image being transformed.
