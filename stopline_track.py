@@ -10,17 +10,7 @@ To Use:
 1) Set fileName to the name of the image being transformed.
 2) Ensure the image and this file are in the same folder.
 3) Run the program.
-4) A Select ROI box will appear. Select a point or rectangular region that
-    captures the top left marker on the ground. Press space.
-5) Another Select ROI box will appear. Do the same thing, but for the top right
-    marker. Repeat twice more for the bottom right and bottom left markers, in
-    that order.
-6) A final Select ROI box will appear. Select the rectangular region which will
-    define the 4 corners of the dst points. When this region is selected, press
-    space again.
-7) Two images will be output. First, "fileName_transformed.png" will contain
-    the transformed image. Second, "fileName_pts_shown.png" will show the src
-    and dst points you selected in red and green, respectively.
+
 '''
 
 import cv2
