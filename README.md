@@ -23,5 +23,7 @@ However, in HSV color space, the Hue component will render the entire blue tape 
 
 A report available at: https://www.ri.cmu.edu/pub_files/2014/6/tech-report-ri-tr-14-09.pdf examines the method for autonomous vehicle to detect stoplines. 
 
+Read this: https://towardsdatascience.com/deeppicar-part-4-lane-following-via-opencv-737dd9e47c96
+
 
   
