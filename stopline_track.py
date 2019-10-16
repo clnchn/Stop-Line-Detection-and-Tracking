@@ -120,10 +120,10 @@ try:#for real time in case no lines detected
 		print(theta)
 		if theta > 170 or theta < 10:
 		#if theta > np.pi/180 * 170 or theta < np.pi/180 * 10: #vertical lines
-			cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),5)
+			cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),2)
 		elif theta > 10 and theta < 170: 
 		#elif theta > np.pi/180 * 20 and theta < np.pi/180 * 160: #horizontal lines
-			cv2.line(frame,(x1,y1),(x2,y2),(255,0,0),5)
+			cv2.line(frame,(x1,y1),(x2,y2),(255,0,0),2)
 except: 
 	pass
 # Separate into stop lines and lane lines.
