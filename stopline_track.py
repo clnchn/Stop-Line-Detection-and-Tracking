@@ -25,8 +25,8 @@ def selectROI(edges):
 
 	#We shall only focus on the bottom half of the screen which are 	the lane and stop lane 
 	polygon = np.array([[
-        (0, height * 5 / 8), 
-        (width, height * 4 / 8),
+        (0, height * 9 / 16), 
+        (width, height * 9 / 16),
         (width, height),
         (0, height),
     	]], np.int32)
@@ -91,12 +91,12 @@ def average_slope_intercept(frame, line_segments):
 # Loads an image
 #cv.samples.findFile(filename)<----Change Path otherwise stuff wont work
 
-frame = cv2.imread('/home/celene/python_environment/stop-junction2.jpg')
+frame = cv2.imread('/home/celene/git_workspace/Stop-Line-Detection-and-Tracking/stop-junction2.jpg')
 
 #Check if image is loaded fine
 #if frame is None: 
 #	print ('Unable to load image.')
-#return -1
+#	return -1
 
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 lower_lane = np.array([0, 0, 160])
@@ -110,19 +110,29 @@ edges = cv2.Canny(mask, 200, 400)
 
 # Eliminate roadlines that are not inside the drivable surface based on segmentation. 
 
-#focus_edges = selectROI(edges)
-
-lines = cv2.HoughLinesP(edges,1,np.pi/180,80,minLineLength=100,maxLineGap=10)
+focus_edges = selectROI(edges)
+lines = cv2.HoughLinesP(focus_edges,1,np.pi/180,80,minLineLength=100,maxLineGap=30)
+k=20
 
 for line in lines:
-    x1,y1,x2,y2 = line[0]
-    cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),2)
+	x1,y1,x2,y2 = line[0]
+	cv2.line(frame,(x1,y1),(x2,y2),(k+2,0,0),2)
 
 # Separate into stop lines and lane lines.
+vert_lines = cv2.HoughLinesP(focus_edges,1,np.pi/180,80,minLineLength=100,maxLineGap=30)
+
+#for line in lines:
+#    x1,y1,x2,y2 = line[0]
+#    cv2.line(frame,(x1,y1),(x2,y2),(255,0,0),2)
 
 
 
-cv2.imshow('image', edges)
+# Dashed Lines 
+
+cv2.imwrite('/home/celene/git_workspace/Stop-Line-Detection-and-Tracking/output.jpg',frame)
+
+
+cv2.imshow('image', focus_edges)
 cv2.imshow('image2', frame)
 cv2.waitKey(50000)
 
