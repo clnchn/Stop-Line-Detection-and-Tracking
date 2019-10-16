@@ -112,18 +112,21 @@ edges = cv2.Canny(mask, 200, 400)
 
 focus_edges = selectROI(edges)
 lines = cv2.HoughLinesP(focus_edges,1,np.pi/180,80,minLineLength=100,maxLineGap=30)
-k=20
-
-for line in lines:
-	x1,y1,x2,y2 = line[0]
-	cv2.line(frame,(x1,y1),(x2,y2),(k+2,0,0),2)
-
+#http://opencvexamples.blogspot.com/2013/10/line-detection-by-hough-line-transform.html
+try:#for real time in case no lines detected
+	for line in lines:
+		x1,y1,x2,y2 = line[0]
+		theta = line[0][1]-360
+		print(theta)
+		if theta > 170 or theta < 10:
+		#if theta > np.pi/180 * 170 or theta < np.pi/180 * 10: #vertical lines
+			cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),5)
+		elif theta > 10 and theta < 170: 
+		#elif theta > np.pi/180 * 20 and theta < np.pi/180 * 160: #horizontal lines
+			cv2.line(frame,(x1,y1),(x2,y2),(255,0,0),5)
+except: 
+	pass
 # Separate into stop lines and lane lines.
-vert_lines = cv2.HoughLinesP(focus_edges,1,np.pi/180,80,minLineLength=100,maxLineGap=30)
-
-#for line in lines:
-#    x1,y1,x2,y2 = line[0]
-#    cv2.line(frame,(x1,y1),(x2,y2),(255,0,0),2)
 
 
 
