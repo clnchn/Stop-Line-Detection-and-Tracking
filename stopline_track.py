@@ -93,7 +93,7 @@ except:
 cv2.imwrite('/home/celene/git_workspace/Stop-Line-Detection-and-Tracking/result.jpg',frame)
 
 cv2.imshow('hsv', hsv)
-cv2.imshow('edges', focus_edges)
+
 cv2.imshow('output', frame)
 cv2.waitKey(50000)
 cv2.imwrite('/home/celene/git_workspace/Stop-Line-Detection-and-Tracking/output.jpg',frame)
