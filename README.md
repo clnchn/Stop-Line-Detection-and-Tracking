@@ -1,6 +1,6 @@
-This is another short project for Watonomous. An autonomous vehicle should be able to recognize a stop-line and stop at the detected stop-line. 
+Project for Watonomous: An autonomous vehicle should be able to recognize a stop-line and stop at the detected stop-line. 
 
-Task Overview:
+# Task Overview:
 
 -Extracting lane lines using canny edge detection and hough transform
 -Eliminate roadlines that are not inside the drivable surface based on segmentation.
