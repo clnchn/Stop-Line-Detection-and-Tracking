@@ -2,9 +2,9 @@ Project for Watonomous: An autonomous vehicle should be able to recognize a stop
 
 # Task Overview:
 
--Extracting lane lines using canny edge detection and hough transform
--Eliminate roadlines that are not inside the drivable surface based on segmentation.
--Separate into stop lines and lane lines.
+- Extracting lane lines using canny edge detection and hough transform
+- Eliminate roadlines that are not inside the drivable surface based on segmentation.
+- Separate into stop lines and lane lines.
 
 The objective of this project is to try to develop a computer vision algorithm to detect the stop lines and track them over time. The successful completion of these tasks begins by the recognition of stoplines. It is important to note that lateral and longitudinal lane-markings for stop-lines and lane boundaries are not always visible because of occlusions by neighboring vehicles and other urban structures, and painting qualities.
 
